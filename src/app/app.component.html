@@ -4,14 +4,7 @@
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
 </div>
-
+<button (click)="onCoursesEdited()">Edit</button>
 <div class="courses">
-  @for(course of courses; track trackCourse($index, course); let count = $count, let first = $first; let last = $last; let event = $even; let odd = $odd) {
-  <course-card [course]="course" [index]="$index" [class.is-first]="first" [class.is-last]="last" [class.is-even]="event" [class.is-odd]="odd"
-  />
-
-  }
-  @empty {
-    <h1>no course found</h1>
-  }
+  <course-card [course]="courses[0]" (courseSelected)="onCourseSelected($event)" />
 </div>
